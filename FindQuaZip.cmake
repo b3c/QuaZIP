@@ -5,8 +5,13 @@ include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(quazip DEFAULT_MSG QuaZip_LIBRARY QuaZip_INCLUDE_DIR)
 set(QuaZip_LIBRARIES ${QuaZip_LIBRARY})
 
+get_filename_component(QuaZip_LIBRARY_DIR ${QuaZip_LIBRARY} PATH)
+
 include_directories("${QT_PLUGINS_DIR}/../src/3rdparty/zlib/")
 # Add include directories needed to use QtSOAP.
 INCLUDE_DIRECTORIES(${QuaZip_INCLUDE_DIR})
+
+set(QuaZip_LIBRARY_DIR "${QuaZip_LIBRARY_DIR}/../")
+LINK_DIRECTORIES(${QuaZip_LIBRARY_DIR})
 
 mark_as_advanced(QuaZip_LIBRARY QuaZip_INCLUDE_DIR)
