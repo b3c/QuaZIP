@@ -7,7 +7,8 @@ set(QuaZip_LIBRARIES ${QuaZip_LIBRARY})
 
 get_filename_component(QuaZip_LIBRARY_DIR ${QuaZip_LIBRARY} PATH)
 
-include_directories("${QT_PLUGINS_DIR}/../src/3rdparty/zlib/")
+FIND_PACKAGE(zlib REQUIRED)
+# include_directories("${QT_PLUGINS_DIR}/../src/3rdparty/zlib/")
 # Add include directories needed to use QtSOAP.
 INCLUDE_DIRECTORIES(${QuaZip_INCLUDE_DIR})
 
